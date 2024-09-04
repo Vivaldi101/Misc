@@ -22,6 +22,7 @@ set incsearch
 set laststatus=2
 set title
 
+let mapleader="-"
 inoremap jk <esc>
 vnoremap jk <esc>
 onoremap jk <esc>
@@ -32,10 +33,12 @@ nnoremap <leader>d ]]
 map <leader>b %
 nnoremap S <C-w>r
 nnoremap f :Files<cr>
+nnoremap <leader>f :Rg<space>
+nnoremap <leader>b :Buffers<cr>
 nnoremap <C-c> I//<esc>
 nnoremap <C-h> :nohl <cr>
 nnoremap <leader>w :e .<cr>
-nnoremap <F12> :LspDefinition <cr>
+nnoremap <leader>d :LspDefinition <cr>
 inoremap <S-j> ()
 inoremap <S-k> {}
 inoremap <S-l> []
