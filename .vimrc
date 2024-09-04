@@ -55,7 +55,6 @@ nnoremap vv v$
 nnoremap s <C-w>w
 
 
-
 " Install vim-plug
 "curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -83,7 +82,11 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'AlessandroYorba/Alduin'
 Plug 'andreasvc/vim-256noir'
 
+" grep replacement
 Plug 'jremmen/vim-ripgrep'
+
+" async tasks
+Plug 'skywind3000/asyncrun.vim'
 
 call plug#end()
 
@@ -93,3 +96,32 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
 colorscheme darkblue
+
+let g:BuildToggle = 1
+
+function! BuildProgram()
+	if g:BuildToggle == 1
+		let g:BuildToggle = 0
+		copen 30
+		cbottom
+		"exe 'cd ' . g:BuildProgramPath
+		silent AsyncRun(./build.sh)
+	else
+		let g:BuildToggle = 1
+		cclose
+	endif
+endfunction
+
+function! ToggleBuildPanel()
+	if g:BuildToggle == 1
+		let g:BuildToggle = 0
+		copen 30
+		cbottom
+	else
+		let g:BuildToggle = 1
+		close
+	endif
+endfunction
+
+nnoremap <silent> , :wa<CR> :call BuildProgram() <cr>
+nnoremap <silent> ö :call ToggleBuildPanel() <cr>
