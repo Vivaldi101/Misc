@@ -19,6 +19,8 @@ set shiftwidth=4
 set fillchars=
 set number
 set incsearch
+set laststatus=2
+set title
 
 inoremap jk <esc>
 vnoremap jk <esc>
@@ -49,7 +51,7 @@ nnoremap d d`f
 nnoremap vv v$
 nnoremap s <C-w>w
 
-colorscheme darkblue
+"colorscheme 256_noir
 
 
 " Install vim-plug
@@ -74,6 +76,10 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 " whitespace
 Plug 'ntpeters/vim-better-whitespace'
+
+" colors
+Plug 'AlessandroYorba/Alduin'
+Plug 'andreasvc/vim-256noir'
 
 call plug#end()
 
