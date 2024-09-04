@@ -72,6 +72,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
+" whitespace
+Plug 'ntpeters/vim-better-whitespace'
+
 call plug#end()
 
 
