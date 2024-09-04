@@ -80,6 +80,8 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'AlessandroYorba/Alduin'
 Plug 'andreasvc/vim-256noir'
 
+Plug 'jremmen/vim-ripgrep'
+
 call plug#end()
 
 
