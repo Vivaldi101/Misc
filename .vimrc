@@ -29,9 +29,11 @@ nnoremap <leader>s [[
 nnoremap <leader>d ]]
 map <leader>b %
 nnoremap S <C-w>r
+nnoremap f :Files<cr>
 nnoremap <C-c> I//<esc>
-nnoremap <C-u> 0wxx
+nnoremap <C-h> :nohl <cr>
 nnoremap <leader>w :e .<cr>
+nnoremap <F12> :LspDefinition <cr>
 inoremap <S-j> ()
 inoremap <S-k> {}
 inoremap <S-l> []
@@ -41,23 +43,32 @@ inoremap <leader>b <bar>
 inoremap <leader>t ~
 inoremap <leader>c ""
 inoremap ö <BS>
-inoremap Ö <C-n>
+nnoremap <C-s> :wa<cr>
 map <space> mf
 nnoremap d d`f
 nnoremap vv v$
-"nnoremap z zz
 nnoremap s <C-w>w
 
 colorscheme darkblue
 
+
+" Install vim-plug
+"curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+
 call plug#begin()
 
+" lsp
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 
-"Plug 'Shougo/ddc.vim'
-"Plug 'shun/ddc-vim-lsp'
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
+" autocomplete
+" install bear to generate compile_commands.json
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
